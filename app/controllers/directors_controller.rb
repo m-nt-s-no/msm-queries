@@ -28,6 +28,9 @@ class DirectorsController < ApplicationController
   end
 
   def show_director
-
+    @id = params.fetch("id")
+    @director = Directors.where(:id => @id).at(0)
+    @movies = Movies.where(:director_id => @id)
+    render({:template => "/details"})
   end
 end
