@@ -1,1 +1,38 @@
 <h1>Director #<%= @id %> details</h1>
+<a href="/directors">Go back</a>
+<hr>
+<dl>
+<% @director.each do |k, v|%>
+  <% if k == "id"%>
+    <% next %>
+  <% else %>
+    <dt><%= k.dup.capitalize! %></dt>
+    <% if k == "image"%>
+      <dd><img src="<%= v %>"></dd>
+    <% else %>
+      <dd><%= v %></dd>
+    <% end %>
+  <% end %>
+<% end %>
+</dl>
+<hr>
+<h2>Filmography</h2>
+<table border = "1">
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th></th>    
+  </tr>
+  <% @movies.each do |entry| %>
+  <tr>
+    <td><%= entry.fetch("id") %></td>
+    <td><img src="<%= entry.fetch("image") %>"></td>
+    <td><%= entry.fetch("title") %></td>
+    <td><%= entry.fetch("year") %></td>
+    <td><%= @director.fetch("name") %></td>
+    <td><a href="/movies/<%= entry.fetch("id").to_s %>">Show details</a></td>
+  <% end %>
+</table>
