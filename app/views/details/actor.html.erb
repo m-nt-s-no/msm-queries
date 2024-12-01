@@ -1,0 +1,35 @@
+<h1>Actor #<%= @id.to_s %> details</h1>
+<a href="/actors">Go back</a>
+<hr>
+<dl>
+<% @actor.each do |k, v|%>
+  <% if k == "id"%>
+    <% next %>
+  <% else %>
+    <dt><%= k.dup.capitalize! %></dt>
+    <% if k == "image"%>
+      <dd><img src="<%= v %>"></dd>
+    <% else %>
+      <dd><%= v %></dd>
+    <% end %>
+  <% end %>
+<% end %>
+</dl>
+<hr>
+<h2>Filmography</h2>
+<table border = "1">
+  <tr>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th>Character Name</th>
+    <th></th>    
+  </tr>
+  <% @filmography.each do |entry| %>
+  <tr>
+    <%= (entry.length - 1).times do |num| %>
+    <td><%= entry.at(num) %></td>
+    <% end %>
+    <td><a href="/movies/<%= entry.at(-1).to_s %>">Show details</a></td>
+  <% end %>
+</table>

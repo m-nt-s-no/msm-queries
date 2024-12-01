@@ -1,4 +1,4 @@
-<h1>List of all directors</h1>
+<h1>List of all actors</h1>
 <table border = "1">
   <tbody>
     <tr>
@@ -8,7 +8,7 @@
       <th>Dob</th>
       <th></th>
     </tr>
-    <% @dir_array.each do |data| %>
+    <% @actor_array.each do |data| %>
     <tr>
       <% data.each do |datum| %>
         <% if datum.to_s[0..4] == "https" %>
@@ -17,7 +17,7 @@
           <td><%= datum %></td>
         <% end %>
       <% end %>
-      <td><a href="/directors/<%= data.at(0).to_s %>">Show details</a></td>
+      <td><a href="/actors/<%= data.at(0).to_s %>">Show details</a></td>
     </tr>
     <% end %>
   </tbody>
