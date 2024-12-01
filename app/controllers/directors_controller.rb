@@ -31,6 +31,6 @@ class DirectorsController < ApplicationController
     @id = params.fetch("id")
     @director = Director.where(:id => @id).at(0).as_json
     @movies = Movie.where(:director_id => @id).as_json
-    render({:template => "/details"})
+    render({:template => "/details/director"})
   end
 end

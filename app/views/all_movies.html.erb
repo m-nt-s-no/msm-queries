@@ -1,14 +1,15 @@
-<h1>List of all directors</h1>
+<h1>List of all movies</h1>
 <table>
   <tbody>
     <tr>
       <th>ID</th>
       <th>Image</th>
-      <th>Name</th>
-      <th>Dob</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Director</th>
       <th></th>
     </tr>
-    <% @dir_array.each do |data| %>
+    <% @movie_array.each do |data| %>
     <tr>
       <% data.each do |datum| %>
         <% if datum.to_s[0..4] == "https" %>
@@ -17,7 +18,7 @@
           <td><%= datum %></td>
         <% end %>
       <% end %>
-      <td><a href="/directors/<%= data.at(0).to_s %>">Show details</a></td>
+      <td><a href="/movies/<%= data.at(0).to_s %>">Show details</a></td>
     </tr>
     <% end %>
   </tbody>

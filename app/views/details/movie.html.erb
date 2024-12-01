@@ -1,0 +1,14 @@
+<h1>Movie #<%= @id %> details</h1>
+<a href="/movies">Go back</a>
+<hr>
+<dl>
+<% @movie.each do |k, v|%>
+  <dt><%= k.dup.capitalize! %></dt>
+  <% if k == "image"%>
+    <dd><img src="<%= v %>"></dd>
+  <% else %>
+    <dd><%= v %></dd>
+  <% end %>
+<% end %>
+</dl>
+<hr>
